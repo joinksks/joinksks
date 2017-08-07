@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>注册页面</title>
+		<link rel="stylesheet" type="text/css" href="../css/regStyle.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/jquery.idcode.css"/>
+		<script src="../js/jquery-1.12.3.js"></script>
+		<script src="../js/jquery.idcode.js"></script> 
+		<script type="text/javascript"> 
+			onload = function(){
+				var oA = document.getElementsByClassName("reg_btn")[0];
+				var aInput = document.getElementsByTagName("input");
+				
+				//正则表达式验证表单
+				var flag1 = false; //表示用户名是否正确
+				var flag2 = false; //表示邮箱是否正确
+				var flag3 = false; //表示密码是否正确
+				var flag4 = false; //表示重复密码是否正确 
+				var flag5 = false; //表示手机号是否正确
+				var flag6 = false; //表示验证码是否正确
+				  //注册
+				$.idcode.setCode();   //加载生成验证码方法 
+
+	            oA.onclick = function(){
+	                
+	                var IsBy = $.idcode.validateCode()  //调用返回值，返回值结果为true或者false
+	                console.log(IsBy);
+	                var reg1 = /^[a-zA-Z_]\w{3,11}$/;//用户名
+	                var reg2 = /^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/;//邮箱
+	                var reg3 = /^.{8,20}$/; //密码
+	                var reg5 = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[05-9]))\d{8}$/; //手机号
+	                if(reg1.test($(".username").val())){
+	                	$(".text span").hide();
+	                	flag1 = true;
+		                	if(reg2.test($(".email").val())){
+		                	$(".text span").hide();
+		                	flag2 = true; 
+		                	 if(reg3.test($(".pwd").val())){
+			                	$(".text span").hide();
+			                	flag3 = true;
+						        if($(".pwd2").val() == $(".pwd").val()){
+				                	$(".text span").hide();
+				                	flag4 = true;
+				                	if(reg5.test($(".phone").val())){
+					                	$(".text span").hide();
+					                	flag5 = true;
+					                	if (IsBy){
+											$(".text span").hide();  
+											flag6 = true;
+											//console.log(11); 
+											var xhr = new XMLHttpRequest(); 
+							                xhr.open("POST", "http://127.0.0.1/register.php", true);
+							                xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+							                console.log(11);
+							                xhr.send("username="+aInput[0].value+"&email="+aInput[1].value+"&pwd="+aInput[2].value); 
+											console.log(22);
+											xhr.onreadystatechange = function(){
+												console.log(33);  
+							                    if (xhr.readyState==4 && xhr.status==200) {
+							                        console.log(xhr.responseText);
+													var obj = JSON.parse(xhr.responseText);
+													if(obj.status == 1){ 
+														$(".text span").html("注册成功").show().hide(2000);  
+													}
+													else{
+														$(".text span").html("用户名已存在").show().hide(2000);  
+													}
+							                    } 
+							                }
+										}
+										else {
+											$(".text span").html("验证码不正确").show().hide(2000);
+										}
+					                }
+					                else{
+					                	$(".text span").html("手机号不合法").show().hide(2000);
+					                } 
+				                }
+				                else{
+				                	$(".text span").html("俩次密码输入不一致").show().hide(2000);
+				                }	
+			                }
+			                else{
+			                	$(".text span").html("密码不合法").show().hide(2000);
+			                }
+		                }
+		                else{
+		                	$(".text span").html("邮箱不合法").show().hide(2000);
+		                }
+	                }
+	                else{
+	                	$(".text span").html("用户名不合法").show().hide(2000); 
+	                }   
+	            }  
+				
+				 
+					
+			}
+		</script>
+	</head>
+	<body>
+		<div id="top_wrap">
+			<div class="top">
+				<div class="logo">
+					<a href="#">
+						<img src="../img/cdn.taomeixie.com/themes/shop/images/logo.png"/>
+					</a>
+				</div>
+				<div class="help">
+					<span>对商城不了解？<a href="#">点击这里查看帮助中心>></a></span> 
+				</div>
+			</div>
+		</div>
+		<div id="main_wrap">
+			<div class="main">
+				<div class="m_l">
+					<div><span>我有账号，<a href="login.html">去登陆</a></span></div>  
+					<div></div>
+					<p><span><b>*</b>用户名：</span><input type="text" class="username"/></p>
+					<p><span><b>*</b>邮箱：</span><input type="email" class="email"/></p>
+					<p><span><b>*</b>密码：</span><input type="password" class="pwd"/></p>
+					<p><span></span><span class="test"></span></p> 
+					<p><span><b>*</b>确认密码：</span><input type="password" class="pwd2"/></p>
+					<p><span><b>*</b>手机号：</span><input type="text" class="phone"/></p>
+					<p><span>姓名：</span><input type="text" class="name"/></p>
+					<p><span><b>*</b>QQ：</span><input type="text" class="qq"/></p>
+					<p><span><b>*</b>旺旺或微信：</span><input type="text" class="weixin"/></p>
+					<p><span><b>*</b>网店地址：</span><input type="url" class="address"/></p> 
+					<p><span>验证码：</span><input type="text" class="yanzheng" id ="Txtidcode"/><span class="yanzhengma" id="idcode"></span></p> 
+					<p class="text"><span></span></p>
+					<p class="htp"><a href="#">《淘美鞋女鞋批发网服务协议》</a></p> 
+					<a href="javascript:;" class="reg_btn">同意协议并注册</a> 
+				</div>
+				<div class="m_r">
+					<img src="../img/reg-box-bg.jpg"/>
+				</div>
+			</div>
+		</div>
+		<div id="footer_wrap">
+			<div class="foot">
+				<div class="f_m"></div>
+				<div class="f_b">
+					<div></div>  
+					<p>©2008～2014 成都淘美秀商贸有限公司 All rights reserved   本商店产品图片均为实物拍摄都已经申请保护，不经授权不得使用！ </p>
+					<p>电话：<span>4008518595</span>   工作时间：9:00－23:00    邮箱：service@taomeixie.com </p>
+					<p>© 2017 淘美鞋女鞋批发网 版权所有  <a href="#">蜀ICP备09022855号</a></p> 
+				</div>
+				<div class="bottom">
+					<img src="../img/sm_124x47.png"/>
+					<img src="../img/sealfree.png"/>
+					<img src="../img/pic.gif"/> 
+					<img src="../img/gtms01.alicdn.com/tps/i1/T1W6.aFbFbXXcZj_6s-96-18.png"/> 
+				</div> 
+			</div>
+		</div>
+	</body>
+</html>

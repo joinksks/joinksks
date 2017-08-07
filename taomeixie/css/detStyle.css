@@ -1,0 +1,1133 @@
+
+/*动画加入购物车*/
+.u-flyer{display: block;width: 50px;height: 50px;border-radius: 50px;position: fixed;z-index: 9999;}
+  
+#top1_wrap{
+	width: 100%;
+	height: 33px;
+	background: #f6f6f6;
+	z-index: 1000; 
+}
+.top_t{
+	width: 1200px;
+	height: 30px;
+	margin: 0 auto;
+	padding-bottom: 2px;
+	border-bottom: 1px solid #e7e7e7;
+	color: #333333;
+	line-height: 30px;
+	position: relative;
+}
+.tList1{
+	float: left;
+}
+.tList1 li,.tList2 li{
+	float: left;
+	margin-right: 10px;
+}
+.tList1 li a,.tList2 li a,.tList1 li span,.tList2 li span{
+	display: inline-block;
+	padding: 5px;
+	line-height: 18px;
+	position: relative;
+}
+.tList2{
+	float: right;
+}
+.tList1 li a span{
+	background-color: #CCCCCC;
+    display: inline-block;
+    height: 12px;
+    position: absolute;
+    right: 0;
+    top: 8px;
+    width: 1px;
+    padding: 0;
+}
+.tList1 .spe{
+	margin-right: 0;
+}
+.spe2{
+	display: inline-block;
+	padding:0px 21px 0px 10px;
+	width: 14px;
+	height: 16px;
+	background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/header-ico.png) no-repeat 0 -83px;
+}
+.spe3{
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/spirit.png) no-repeat -135px -21px;
+	left: 27px;
+	top: 10px;
+	position: absolute;
+}
+.tList2 .spe4{
+	font-size: 14px;
+    color: #FF0000;
+    font-family: '微软雅黑';
+    font-weight: bold;
+    display: inline-block;
+}
+.tList3{
+	position: absolute;
+	left: 330px;
+	top: 30px;
+	border: 1px solid #cccccc;
+	display: none;
+	background: white;
+	z-index: 10;
+}
+.tList3 li:nth-child(1){
+	background-color: #EEEEEE;
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 12px;
+    font-weight: bold;
+    height: 16px;
+    padding: 6px 8px;
+    line-height: 18px;
+}
+.tList3 li{
+	padding: 8px;
+    line-height: 20px;
+    border-bottom: 1px dashed #EEE;
+}
+.tList3 li:last-child{
+    border-bottom: 0;
+}
+.tList3 li span{
+	color: #CC0000;
+}
+
+/*top_m*/
+#top2_wrap{
+	width: 100%;
+	height: 90px;
+}
+.top_m{
+	width: 1200px;
+	height: 90px;
+	margin:0 auto;
+}
+.t_logo{
+	width: 460px;
+	height: 70px;
+	margin-top: 8px;
+	margin-right: 40px;
+	float: left;
+}
+.t_search{
+	margin-top: 24px;
+	float: left;
+	width: 420px;
+	height: 40px;
+	position: relative;
+}
+.t_search input:nth-child(1){
+	border: 1px solid #dbdbdb;
+    border-right: 0 none;
+    background: #ffffff;
+    color: #BBBBBB;
+    float: left;
+    height: 38px;
+    line-height: 38px;
+    text-indent: 10px;
+    width: 315px;
+    padding: 0;
+}
+.t_search input:nth-child(2){
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    width: 100px;
+    background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/spirit.png) no-repeat 0 -191px;
+    border: none;
+    cursor: pointer;
+}
+.tList4{
+	position: absolute;
+	width: 432px;
+	height: 38px;
+	border: 1px solid #ED631A;
+	top: 38px;
+	background: white;
+	display: none;
+}
+.tList4 li{
+	float: left;
+	line-height: 32px;
+}
+.tList4 li:nth-child(1){
+	color: #999999;
+	margin-left: 16px;
+	margin-right: 5px;
+}
+.tList4 li a{
+	float: left;
+	margin-right: 16px;
+	color: #666666;
+}
+.t_cart{
+	border: 1px solid #EFEFEF;
+    margin-top: 24px;
+    height: 38px;
+    line-height: 38px;
+    padding: 0;
+    text-align: center;
+    width: 213px;
+    position: relative;
+    background: #F7F7F7;
+    float: right;
+    cursor: pointer;
+    position: relative;
+}
+.t_cart h3{
+    padding-left: 40px;
+    text-align: left;
+    font-family: "微软雅黑";
+    font-size: 12px;
+    font-weight: normal;
+    background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/spirit.png) no-repeat -105px -181px #F7F7F7;
+}
+.t_cart h3 a{
+	display: block;
+	background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/spirit.png) no-repeat 101px -240px;
+}
+.t_cart h3 a span{
+	padding: 0 2px;
+    color: #D70000;
+    font-weight: bold;
+}
+.t_cart .aper{
+	background-color: #FFFFFF;
+    border: 1px solid #CECECE;
+    position: absolute;
+    right: 0px;
+    text-align: left;
+    top: 38px;
+    width: 318px;
+    z-index: 10;
+    display: none;
+}
+.t_cart .aper p{
+	background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/spirit.png) no-repeat -51px -81px transparent;
+    height: 42px;
+    margin: 25px 0 25px 40px;
+    padding-left: 50px; 
+	line-height: 20px;
+}
+.t_cart .aper p a{
+	color: #B2002E; 
+}
+/*top_b*/
+#top3_wrap{
+	height: 45px;
+    background: #cc0001;
+    position: relative;
+}
+.top_b{
+	width: 1200px;
+	height: 45px;
+	margin: 0 auto;
+}
+.top_all{
+	background-color: #e73300;
+    color: #FFFFFF;
+    float: left;
+    height: 38px;
+    left: 0;
+    padding-top: 7px;
+    position: relative;
+    width: 220px;
+}
+.top_all a{
+	color: #FFFFFF;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    height: 28px;
+    padding: 3px 0 0 24px;
+}
+.top_all a:hover{
+	color: white;
+}
+.top_all i{
+	display: inline-block;
+	background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/spirit.png) no-repeat -139px -61px;
+    height: 15px;
+    width: 15px;
+    line-height: 15px;
+    overflow: hidden;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    transition: all 0.5s ease 0s;
+}
+.active{
+	background: #b00000;
+}
+.tList5{
+	float: left;
+}
+.tList5 li{
+	float: left;
+}
+.tList5 li a{
+	float: left;
+	color: #fff;
+    padding: 0 20px;
+    display: block;
+    line-height: 45px;
+    height: 45px;
+    font-size: 15px;
+    font-family: "微软雅黑";
+}
+.t_nav{
+	position: absolute;
+	left: 0;
+	top: 45px;
+	width: 220px;
+	font-family: "微软雅黑";
+	background-color: #f8f8f8;
+    border: 1px solid #e4e4e4;
+    border-top: 0;
+    z-index: 10;
+}
+.t_nav>ul{
+	display: none;
+}
+.t_nav>ul>li{
+	padding: 10px 0 10px 50px;
+    border-bottom: 1px solid #DCDCDC;
+    border-top: 1px solid #fff;
+    font-size: 0;
+    height: 48px;
+}
+.t_nav>ul>li:nth-child(1){
+	background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/cat-ico.png) no-repeat 5px 8px;
+}
+.t_nav>ul>li:nth-child(2){
+	background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/cat-ico.png) no-repeat 5px -62px;
+}
+.t_nav>ul>li:nth-child(3){
+	background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/cat-ico.png) no-repeat 5px -131px;
+}
+.t_nav>ul>li:nth-child(4){
+	background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/cat-ico.png) no-repeat 5px -202px;
+}
+.t_nav>ul>li:nth-child(5){
+	background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/cat-ico.png) no-repeat 5px -274px;
+}
+.t_nav>ul>li:nth-child(6){ 
+	background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/cat-ico.png) no-repeat 5px -342px;
+}
+.t_nav>ul>li>a{
+	color: #999999;
+	font-size: 12px;
+	display: inline-block;
+	line-height: 16px;
+	padding: 0;
+	font-weight: normal;
+	height: 16px;
+	margin-right: 6px;
+	position: relative;
+	top: -13px;
+}
+.t_nav>ul>li>a:hover{
+	color: #999999;
+}
+.t_nav>ul>li>a:nth-child(1){
+	color: #333333;
+	font-size: 14px;
+	line-height: 19px;
+	padding: 0;
+	display: block;
+	height: 19px;
+	position: relative;
+	top: 4px;
+}
+/*dis*/
+.dis{
+	position: absolute;
+	left: 222px;
+	top: 0;
+	width: 410px;
+	height: 425px;
+	background: #fff;
+	z-index: 100;
+	display: none;
+}
+.dis>h3{
+	background-position: right 7px;
+    display: inline-block;
+    font-size: 16px;
+    padding: 20px 22px 0 0;
+    text-align: left;
+    width: 170px;
+    height: 50px;
+    text-indent: 2em;
+    color: black;
+    cursor: pointer;
+}
+.dis>div>ul{
+	float: left;
+	padding: 0 10px;
+}
+.dis>div>ul>li>a{
+	color: red;
+	font-weight: normal;
+}
+.dis>div>ul>li>a:hover{
+	color: red;
+} 
+
+/*main*/
+#main_wrap{
+	width: 100%;
+	min-height: 1500px;
+	margin-bottom: 15px;
+}
+.main{
+	width: 1200px;
+	min-height: 1500px; 
+	margin: 0 auto;
+}
+.m1{
+	height: 35px;
+	padding: 3px 0 7px 0;
+	line-height: 35px;
+}
+.m1 p{
+	padding-left: 40px;
+	background: url(../img/cdn.taomeixie.com/lyecs_style/images/icons.png) no-repeat 0 -36px;
+	position: relative;
+}
+.m1 p .shoucang{
+	position: absolute;
+	right: 0;
+	top: 15px;
+}
+
+/*m2*/
+.m2_l{
+	width: 220px;
+	float: left;
+}
+.m2_l1{
+	margin-bottom: 10px;
+}
+.m2_l1 h3{
+	border: 1px solid #EEE;
+    border-bottom: 1px solid #DDDDDD;
+    padding: 8px 12px;
+    line-height: 25px;
+    height: 25px;
+}
+.m2_l1 .list1{
+	padding: 6px 5px 5px;
+	border: 1px solid #eeeeee;
+}
+.m2_l1 .list1>li{
+	padding: 5px 10px;
+    height: 100%; 
+    border-bottom: 1px solid #EEE;
+}
+.m2_l1 .list1>li>a:nth-child(1){
+	font-size: 14px;
+	
+}
+.m2_l1 .list1>li>a:nth-child(2){
+	display: inline-block;
+	float: right;    
+	height: 14px;
+    width: 14px;
+    margin-top: 1px;
+    text-indent: -999em;
+    transition: all 0.5s ease 0s;
+    transform: rotate(180deg);
+    transform-origin: center;
+    background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/spirit.png) no-repeat -68px 0;
+}
+.m2_l1 .list1>li>.list1_1{
+	display: none;
+	padding: 6px;
+}
+.m2_l1 .list1>li>.list1_1>li{
+	border-bottom: 1px dotted #E1E1E1;
+	padding: 5px;
+}
+.m2_l1 .list1>li>.list1_1>li>a:nth-child(1){
+	background: #fff url(../img/cdn.taomeixie.com/lyecs_style/images/common/spirit.png) no-repeat -105px -5px;
+    width: 11px;
+    height: 11px;
+    display: inline-block;
+    text-indent: -9999px;
+    position: relative;
+    top: 3px;
+}
+.m2_l1 .list1>li>.list1_1>li>a:nth-child(2){
+	display: inline-block;
+    height: 24px;
+    padding: 0 10px 0 4px;
+    font-size: 12px;
+    line-height: 24px;
+}
+.m2_l2{
+	margin-bottom: 10px;
+}
+.m2_l2 h3{
+	border: 1px solid #EEE;
+    border-bottom: 1px solid #DDDDDD;
+    padding: 8px 12px;
+    line-height: 25px;
+    height: 25px;
+}
+.m2_l2 ul{
+	border: 1px solid #eeeeee;
+}
+.m2_l2 ul li{
+	padding: 8px;
+    border-bottom: 1px solid #E2E2E2;
+    overflow: hidden;
+    position: relative;
+    height: 69px;
+}
+.m2_l2 ul li .pic{
+	float: left;
+    width: 68px;
+    padding-right: 10px;
+    padding-left: 22px;
+    display: inline-block;
+}
+.m2_l2 ul li .pic img{
+	width: 68px;
+	height: 68px;
+	cursor: pointer;
+}
+.m2_l2 ul li .msg{
+	float: left;
+    width: 100px;
+    line-height: 23px;
+}
+.m2_l2 ul li .msg p:nth-child(1){
+	height: 22px;
+    line-height: 23px;
+    overflow: hidden;
+    cursor: pointer;
+} 
+.m2_l2 ul li .msg p:nth-child(3){
+	color: #CE0B16;
+    font-size: 12px;
+    font-weight: normal; 
+}
+
+
+.m2_l3{
+	margin-bottom: 10px;
+}
+.m2_l3 h3{
+	border: 1px solid #EEE;
+    border-bottom: 1px solid #DDDDDD;
+    padding: 8px 12px;
+    line-height: 25px;
+    height: 25px;
+}
+.m2_l3 ul{
+	border: 1px solid #eeeeee;
+}
+.m2_l3 ul li{
+	padding: 8px;
+    border-bottom: 1px solid #E2E2E2;
+    overflow: hidden;
+    position: relative;
+    height: 69px;
+}
+.m2_l3 ul .change{
+	height: 26px;
+}
+.m2_l3 ul .change .pic{
+	display: none;
+}
+.m2_l3 ul .change .msg{
+	padding-left: 22px;
+    width: 190px;
+}
+.m2_l3 ul .change .msg p{
+	display: none;
+}
+.m2_l3 ul .change .msg p:nth-child(1){
+	display: block; 
+}
+.m2_l3 ul li .icon{
+	position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 15px;
+    height: 14px;
+}
+.m2_l3 ul li:nth-child(1) .icon{
+    background: url(../img/cdn.taomeixie.com/lyecs_style/style/top_ico.gif) no-repeat;
+}
+.m2_l3 ul li:nth-child(2) .icon{
+    background: url(../img/cdn.taomeixie.com/lyecs_style/style/top_ico.gif) no-repeat 0 -14px;
+}
+.m2_l3 ul li:nth-child(3) .icon{
+    background: url(../img/cdn.taomeixie.com/lyecs_style/style/top_ico.gif) no-repeat 0 -28px;
+}
+.m2_l3 ul li:nth-child(4) .icon{
+    background: url(../img/cdn.taomeixie.com/lyecs_style/style/top_ico.gif) no-repeat 0 -42px;
+}
+.m2_l3 ul li:nth-child(5) .icon{
+    background: url(../img/cdn.taomeixie.com/lyecs_style/style/top_ico.gif) no-repeat 0 -56px;
+}
+.m2_l3 ul li:nth-child(6) .icon{
+    background: url(../img/cdn.taomeixie.com/lyecs_style/style/top_ico.gif) no-repeat 0 -70px;
+}
+.m2_l3 ul li:nth-child(7) .icon{
+    background: url(../img/cdn.taomeixie.com/lyecs_style/style/top_ico.gif) no-repeat 0 -84px;
+}
+.m2_l3 ul li:nth-child(8) .icon{
+    background: url(../img/cdn.taomeixie.com/lyecs_style/style/top_ico.gif) no-repeat 0 -98px;
+}
+.m2_l3 ul li:nth-child(9) .icon{
+    background: url(../img/cdn.taomeixie.com/lyecs_style/style/top_ico.gif) no-repeat 0 -112px;
+}
+.m2_l3 ul li:nth-child(10) .icon{
+    background: url(../img/cdn.taomeixie.com/lyecs_style/style/top_ico.gif) no-repeat 0 -126px;
+}
+.m2_l3 ul li .pic{
+	float: left;
+    width: 68px;
+    padding-right: 10px;
+    padding-left: 22px;
+    display: inline-block;
+}
+.m2_l3 ul li .pic img{
+	width: 68px;
+	height: 68px;
+	cursor: pointer;
+}
+.m2_l3 ul li .msg{
+	float: left;
+    width: 100px;
+    line-height: 23px;
+}
+.m2_l3 ul li .msg p:nth-child(1){
+	height: 22px;
+    line-height: 23px;
+    overflow: hidden;
+    cursor: pointer;
+} 
+.m2_l3 ul li .msg p:nth-child(2){
+}
+.m2_l3 ul li .msg p:nth-child(3){
+	color: #CE0B16;
+    font-size: 12px;
+    font-weight: normal; 
+}
+
+/*m2_r*/
+.m2_r{
+	width: 970px;
+	float: right;
+}
+.box{
+	height: 542px;
+}
+.l_box{
+	width: 455px;
+	height: 486px;
+	border: 1px solid #eee;
+	float: left;
+	position: relative;
+}
+.smallImg{
+	width: 380px;
+    height: 380px;
+    margin: 20px auto 10px;
+    position: relative;
+}
+.smallImg img{
+	width: 380px;
+    height: 380px;
+}
+.smallArea{
+	width: 190px;
+	height: 190px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: white;
+	opacity: 0.4; 
+	display: none;
+}
+.same{
+	height: 60px;
+    padding: 9px 0;
+}
+.same ul{
+	height: 60px;
+	text-align: center;
+}
+.same ul li{
+	border: 2px solid #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    height: 56px;
+    margin-right: 8px;
+    overflow: hidden;
+    width: 56px;
+    border-color: #DDDDDD;
+}
+.same ul li img{
+	width: 100%;
+	height: 100%;
+}
+.bigArea{
+	width: 380px;
+	height: 380px;
+	position: absolute;
+	left: 450px;
+	top: 20px; 
+	display: none;
+	overflow: hidden;
+	z-index: 100;
+}
+.bigImg{
+	width: 760px;
+	height: 760px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.bigImg img{
+	width: 100%;
+	height: 100%;
+}
+
+
+/*r_box*/
+.r_box{
+    border: 1px solid #F4F4F4;
+    border-left: 0;
+    padding: 0 15px 0 21px;
+    color: #999999;
+    float: right;
+    margin-left: -1px;
+    position: relative;
+    width: 475px;
+}
+.r_box h2{
+	border-bottom: 1px solid #F4F4F4;
+    color: #333;
+    padding: 18px 0px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Microsoft YaHei";
+}
+.r_box ul{
+	padding: 9px 1px 0 0;
+}
+.r_box ul li{
+	padding: 5px 0;
+}
+.r_box ul li:nth-child(6) img{
+	display: inline-block;
+}
+.r_box ul li:nth-child(6) i{
+	position: relative;
+	top: -10px;
+}
+.r_box ul li:nth-child(7){
+	padding-bottom: 15px;
+	border-bottom: 1px solid #F4F4F4;
+}
+.r_box ul li:nth-child(7) b{
+	display: inline-block;
+	height: 17px;
+	width: 97px;
+	background: url(../img/commentBg.png) no-repeat 0 -30px;
+}
+.r_box ul li:nth-child(7) em{
+	color: #333333;
+    text-decoration: none;
+    padding: 0 3px;
+    cursor: pointer;
+}
+.r_box ul li:nth-child(8),.r_box ul li:nth-child(9){
+	padding: 10px 0;
+}
+.r_box ul li:nth-child(8) span,.r_box ul li:nth-child(9) span{
+	display: inline-block;
+	padding: 0 6px;
+	margin-right: 15px;
+	border: 1px solid #E7E7E7;
+	border-radius: 2px; 
+	cursor: pointer;
+	position: relative;
+}
+.r_box ul li:nth-child(8) span b,.r_box ul li:nth-child(9) span b{
+    border-radius: 0 2px 2px 0;
+    display: none;
+    height: 20px;
+    width: 12px;
+    position: absolute;
+    right: -11px;
+    top: -1px;
+    background: #CE2226 url(../img/cdn.taomeixie.com/lyecs_style/images/product/detail_icon_bg.gif) no-repeat 2px -42px;
+}
+.r_box ul li:nth-child(8) .click2,.r_box ul li:nth-child(9) .click2{
+	border-color: #CE2226;
+}
+.r_box ul li:nth-child(8) .click2 b,.r_box ul li:nth-child(9) .click2 b{
+	display: inline-block; 
+}
+.r_box ul li:nth-child(10){
+	padding: 10px 0 1px 44px;
+	color: #666666;
+	position: relative;
+}
+.r_box ul li:nth-child(10) input{
+	display: inline-block;
+	width: 78px;
+	height: 27px;
+	line-height: 27px;
+	text-align: center;
+	border: 1px solid #CFD0E3;
+	margin-right: 25px;
+}
+.r_box ul li:nth-child(10) i:nth-child(2){
+	display: block;
+	width: 15px;
+	height: 14px;
+	border: 1px solid #CFD0E3;
+	position: absolute;
+	left: 123px;
+	top: 10px;
+	line-height: 14px;
+	text-align: center;
+	cursor: pointer;
+}
+.r_box ul li:nth-child(10) i:nth-child(3){
+	display: block;
+	width: 15px;
+	height: 14px;
+	border: 1px solid #CFD0E3;
+	position: absolute;
+	left: 123px;
+	top: 25px;
+	line-height: 14px;
+	text-align: center;
+	cursor: pointer;
+}
+.r_box ul li:nth-child(11){
+	padding: 0 0 0 44px;
+	color: #666666;
+	position: relative;
+	height: 67px;
+}
+.r_box ul li:nth-child(11) a:nth-child(1){
+	width: 122px;
+	height: 46px;
+	text-align: center;
+	line-height: 46px;
+	background: #D81E27;
+	color: white;
+	font-size: 16px;
+	border-radius: 3px;
+	margin-right: 10px;
+	float: left;
+	position: relative;
+	top: 10px;
+}
+.r_box ul li:nth-child(11) a:nth-child(2){
+	width: 86px;
+	height: 37px;
+	text-align: center;
+	line-height: 37px;
+	font-size: 14px;
+	color: #666666;
+	border: 1px solid #C4C4C4;
+	border-radius: 3px;
+	margin-right: 10px;
+	float: left;
+	position: relative;
+	top: 13px;
+}
+.r_box ul li:nth-child(11) div{
+	width: 100px;
+	height: 51px;
+	position: relative;
+	top: 10px;
+	float: left;
+}
+.r_box li i{
+	font-style: normal;
+	margin-right: 8px;
+}
+.r_box li em{
+	font-style: normal;
+}
+.throw{
+	text-decoration: line-through;
+	color: #888;
+}
+.spe{
+	color: #CE2226;
+    font-family: arial;
+    font-size: 12px;
+    font-weight: normal;
+}
+.spe em:last-child{
+	font-size: 26px;
+    font-weight: bold;
+    padding: 0 9px 0 0;
+}
+.check{
+	color: #CE0B16;
+    font-size: 14px;
+}
+
+/*pro*/
+.pro{
+height: 48px;	
+}
+.pro ul{
+	border-color: #F4F4F4 #F4F4F4 #2E2E2E;
+    border-style: solid;
+    border-width: 1px 1px 2px;
+    height: 48px;
+    position: relative;
+}
+.pro ul li{
+	float: left;
+	height: 48px;
+	line-height: 48px;
+}
+.pro ul li:last-child{
+	position: absolute;
+	right: 10px;
+	float: none;
+}
+.pro ul li:last-child a{
+	float: none;
+	display: inline-block;
+	padding: 0;
+	width: 78px;
+	height: 36px;
+	background: #D81E27;
+	background-image: linear-gradient(#EC263A,#B92B32);
+	border: 1px solid #AF0911;
+    border-radius: 2px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    line-height: 36px;
+    position: relative;
+    top: -3px;
+}
+.pro ul li a{
+	float: left;
+	font-size: 14px;
+    height: 28px;
+    padding: 10px 20px;
+    text-align: center;
+    line-height: 28px;
+}
+.pro .change{
+	background: #F6F6F6;
+}
+
+
+/*footer部分*/
+#footer_wrap{
+	width: 100%;
+}
+.foot{
+	width: 1200px;
+	margin: 0 auto;
+}
+.f_t{
+	height: 165px;
+	border-top: 1px solid #EFEFEF;
+    border-bottom: 1px solid #EFEFEF;
+}
+.f_t dl{
+	width: 157px;
+    float: left;
+    padding: 10px 0 10px 25px;
+    position: relative;
+}
+.f_t dl:nth-child(3){
+	width: 420px;
+	height: 120px;
+	margin: 10px 0 10px 25px;
+	position: relative;
+	background: url(../img/cdn.taomeixie.com/lyecs_style/style/foot_icos.gif) no-repeat;
+}
+.f_t dl img{
+	position: absolute;
+	right: 0;
+	top: 0; 
+}
+.f_t dl dt{
+	margin-bottom: 3px;
+    padding: 6px 0 6px 30px;
+    font-size: 14px;
+    font-weight: bold; 
+}
+.f_t dl:nth-child(1) dt{
+	background: url(../img/cdn.taomeixie.com/lyecs_style/style/foot_icos.gif) no-repeat -363px -142px;
+}
+.f_t dl:nth-child(2) dt{
+	background: url(../img/cdn.taomeixie.com/lyecs_style/style/foot_icos.gif) no-repeat -363px -195px;
+}
+.f_t dl:nth-child(4) dt{
+	background: url(../img/cdn.taomeixie.com/lyecs_style/style/foot_icos.gif) no-repeat -363px -306px;
+}
+.f_t dl:nth-child(5) dt{
+	background: url(../img/cdn.taomeixie.com/lyecs_style/style/foot_icos.gif) no-repeat -363px -247px;
+} 
+.f_t dl dd{
+	padding: 3px 0 3px 30px;
+    line-height: 20px;
+}
+.f_m{
+	width: 100%;
+	height: 70px;
+	background: url(../img/cdn.taomeixie.com/lyecs_style/style/foot_service.jpg) no-repeat center top;
+}
+.f_b div:nth-child(1){
+	color: #999999;
+    margin-top: 10px;
+    border-top: 1px solid #EFEFEF;
+    border-bottom: 1px solid #EFEFEF;
+    padding: 8px 0;
+}
+.f_b div:nth-child(1) b{
+	color: #999999;
+	margin-bottom: 5px;
+}
+.f_b div:nth-child(1) a{
+	margin-bottom: 5px;
+	color: #999999;
+    padding: 0 10px; 
+}
+.f_b div:nth-child(2){
+	margin-top: 16px;
+	height: 60px;
+	background: url(../img/cdn.taomeixie.com/lyecs_style/style/foot_service.jpg) no-repeat center -70px;
+}
+.f_b p{
+	text-align: center;
+    padding: 5px 0;
+    color: #333;
+}
+.f_b p span{
+	color: #CC0000;
+    font-size: 14px;
+    font-family: Arial;
+    font-weight: bold;
+}
+#bottom{
+	position: relative;
+	height: 108px;
+}
+#bottom img:nth-child(1){
+	position: absolute;
+	left: 495px;
+	top: 30px;
+}
+#bottom img:nth-child(2){
+	position: absolute;
+	left: 635px;
+	top: 30px;
+}
+#bottom img:nth-child(3){
+	position: absolute;
+	left: 555px;
+	bottom: 0;  
+}
+#bottom img:nth-child(4){
+	position: absolute;
+	left: 610px;
+	bottom: 0;  
+}
+
+/*aside*/
+#aside{
+	width: 35px;
+	height: 100%;
+	background: #9699A2;
+	border-left: 1px solid #D9DBE9;
+	position: fixed;
+	right: 0;
+	top: 0;
+}
+#aside ul{
+	margin-top: 150px;
+	border-bottom: 1px solid #BFC0C4;
+    border-top: 1px solid #80848C;
+}
+#aside ul li a{
+	display: block;
+	width: 33px;
+	height: 50px;
+	border-bottom: 1px solid #80848C;
+    border-top: 1px solid #BFC0C4;
+}
+#aside ul li:nth-child(1) a{
+	background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/toolbar_bg.png) no-repeat 3px -30px;
+}
+#aside ul li:nth-child(2) a{
+	background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/toolbar_bg.png) no-repeat 5px -177px;
+}
+#aside ul li:nth-child(3) a{
+	background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/toolbar_bg.png) no-repeat 3px -78px;
+	position: relative;
+}
+#aside ul li:nth-child(4) a{
+	background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/toolbar_bg.png) no-repeat 3px -220px;
+}
+#aside ul li:nth-child(5) a{
+	background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/toolbar_bg.png) no-repeat 3px -274px;
+}
+#aside ul li:nth-child(6) a{
+	background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/toolbar_bg.png) no-repeat 3px -328px;
+}
+#aside i{
+	display: block;
+	width: 17px;
+	height: 17px;
+	background:  #00B000;
+    border: 1px solid #018E01;
+    border-radius: 50%;
+    color: white;
+    position: absolute;
+    text-align: center;
+    line-height: 17px;
+    font-style: normal;
+}
+#toTop{
+	position: fixed;
+	right: 0;
+	top: 80%;
+	width: 35px;
+	height: 74px;
+	z-index: 1000;
+	margin: 5px 0;
+	background: #fff;
+}
+#toTop i{
+	display: block;
+	width: 30px;
+	height: 25px;
+	margin: 0 auto;
+	background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/spirit.png) no-repeat -89px -158px;
+}
+#toTop a{
+	display: block;
+	margin: 5px;
+	font-size: 12px;
+} 

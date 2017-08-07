@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>淘美鞋首页</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<script src="js/jquery-1.12.3.js"></script>
+		<script src="js/jquery.cookie.js"></script> 
+		
+		<script type="text/javascript">
+			$(function(){
+				$(".spe5,.tList3").mouseenter(function(){
+					$(".spe5").css("background","white");  
+					$(".spe3").css({"transition":"all 0.5s ease","transform":"rotate(180deg)"}); 
+					$(".tList3").css("display","block");
+				})
+				$(".spe5,.tList3").mouseleave(function(){
+					$(".spe5").css("background","#f6f6f6");  
+					$(".spe3").css({"transition":"all 0.5s ease","transform":"rotate(0deg)"}); 
+					$(".tList3").css("display","none");
+				}) 
+				$(".tList3 a").mouseenter(function(){
+					$(this).css("background","#e5e5e5");  
+				})
+				$(".tList3 a").mouseleave(function(){
+					$(this).css("background","white");  
+				})
+				//顶部吸顶
+				$(window).scroll(function(){
+					var scrollTop = $(window).scrollTop();
+					if(scrollTop>0){
+						$("#top1_wrap").css({"position":"fixed","top":0}); 
+					}
+					else{
+						$("#top1_wrap").css({"position":"static"});  
+					}
+				})
+				
+				
+				//t_search
+				$(".sear").focus(function(){
+					$(".tList4").css("display","block");
+				})
+				$(".sear").blur(function(){
+					$(".tList4").css("display","none");
+				})
+				$(".t_cart h3,.aper").mouseenter(function(){
+					$(".aper").css("display","block");
+				})
+				$(".t_cart h3,.aper").mouseleave(function(){
+					$(".aper").css("display","none");
+				}) 
+				
+				//top_b tList5
+				$(".tList5 li").mouseenter(function(){
+					$(this).addClass("active").siblings().removeClass("active");
+				})
+				
+				//banner轮播
+				$.get("json/banner_img.json",function(d){
+					//console.log(d);
+					var arr = d.data;
+					for(var i=0; i<arr.length; i++){
+						var obj = arr[i];
+						//console.log(obj);
+						$("<li><img src=" + obj.img + " alt='' /></li>").appendTo($(".bList1"));
+						var li = $("<li>" + (i+1) + "</li>").appendTo($(".bList2")); 
+						if(i == 0){
+							li.addClass("active2");
+						}
+					} 
+					lunbo();
+				})
+				
+				//封装轮播函数
+				function lunbo(){
+					//复制第一张图
+					$(".bList1 li:eq(0)").clone(true).appendTo($(".bList1"));
+					var i = 0;
+					var timer;
+					clearInterval(timer);
+					timer = setInterval(function(){
+						i++;
+						move(); 
+					},5000)
+					//运动函数
+					function move(){
+						
+						if(i>$(".bList1 li").size()-1){
+							$(".bList1").css({left:0}); 
+							i = 1; 
+						}
+						
+						$(".bList1").stop().animate({left:-$(".banner").width()*i + "px"}); 
+						
+						$(".bList2 li").removeClass("active2");
+						if(i == $(".bList1 li").size()-1){
+							$(".bList2 li").eq(0).addClass("active2");
+						}
+						$(".bList2 li").eq(i).addClass("active2");
+					} 
+					//悬停
+					$(".bList2").on("mouseenter","li",function(){
+						//console.log(22);
+						$(".bList2 li").removeClass("active2");
+						$(this).addClass("active2"); 
+						$(".bList1").stop().animate({left:-$(".banner").width()*$(this).index() + "px"}); 
+					})
+					$(".banner").hover(function(){
+						clearInterval(timer); 
+					},
+					function(){
+						timer = setInterval(function(){
+							i++;
+							move();
+						},5000)
+					}) 
+				}
+				
+				//最新公告
+				$(".d_up a").mouseenter(function(){
+					$(this).addClass("active3").siblings().removeClass("active3");
+				})
+				//公告对应内容
+				$.get("json/news.json",function(d){
+					var arr = d.data;
+					for(var i=0; i<arr.length; i++){
+						var obj = arr[i];
+						$("<li><a href=''>" + obj.content + "</a></li>").appendTo(".new ul");
+					}
+				})
+				$.get("json/notice.json",function(d){
+					var arr = d.data;
+					for(var i=0; i<arr.length; i++){
+						var obj = arr[i];
+						$("<li><a href=''>" + obj.content + "</a></li>").appendTo(".advice ul");
+					}
+				})
+				$(".d_up a:eq(0)").mouseenter(function(){
+					$(".new").css("display","block");
+					$(".advice").css("display","none");
+				})
+				$(".d_up a:eq(1)").mouseenter(function(){
+					$(".new").css("display","none");
+					$(".advice").css("display","block");
+				})
+				
+				//main2中间部分
+				$(".m2_m ul a").click(function(){
+					$(this).addClass("active4").siblings().removeClass("active4"); 
+				})
+				//main2产品li
+				
+				$.get("json/main2.json",function(d){
+					var arr = d.data;
+					//console.log(arr);
+					for(var i=0; i<arr.length; i++){
+						var obj = arr[i];
+						//console.log(obj);
+						var li = $("<li></li>").appendTo(".m2_b ul"); 
+						$("<img src=" + obj.img + "/>").appendTo(li);
+						$("<p class='hidden'><span>代理价：<a>登录查看</a></span><a href='' class='send'>一键上传淘宝</a></p>").appendTo(li);
+						$("<p class='name'><a href=''>" + obj.name + "</a><span>¥<b>" + obj.price + "</b></span></p>").appendTo(li);
+						$("<p class='num'><span>货号：</span><span>[" + obj.num + "]</span><span>" + obj.hot + "</span></p>").appendTo(li);
+					}   
+					//移入li
+					$(".m2_b ul li").mouseenter(function(){ 
+						//console.log(22);   
+						$(this).addClass("hover"); 
+						$(this).find(".hidden span").css("display","block");
+						$(this).find(".hidden .send").css("display","block");   
+					}) 
+					//移出li
+					$(".m2_b ul li").mouseleave(function(){ 
+						//console.log(22);   
+						$(this).removeClass("hover"); 
+						$(this).find(".hidden span").css("display","none");
+						$(this).find(".hidden .send").css("display","none");    
+					})  
+					
+					//main2点击商品
+					$(".m2_b ul li").click(function(){
+						
+						//获取点击li下标 
+						var index = $(this).index();
+						var obj = arr[index];
+						//console.log(obj.num);
+						location.href = "html/detail.html?id=" + obj.num; 
+					})
+				}) 
+				
+				//main3部分
+				$.get("json/main3.json",function(d){
+					var arr = d.data;
+					//console.log(arr);
+					for(var i=0; i<arr.length; i++){
+						var obj = arr[i];
+						//console.log(obj);
+						var li = $("<li></li>").appendTo(".m3_b ul"); 
+						$("<img src=" + obj.img + "/>").appendTo(li);
+						$("<p class='hidden'><span>代理价：<a>登录查看</a></span><a href='' class='send'>一键上传淘宝</a></p>").appendTo(li);
+						$("<p class='name'><a href=''>" + obj.name + "</a><span>¥<b>" + obj.price + "</b></span></p>").appendTo(li);
+						$("<p class='num'><span>货号：</span><span>" + obj.num + "</span><span>" + obj.hot + "</span></p>").appendTo(li);
+					} 
+					//移入li
+					$(".m3_b ul li").mouseenter(function(){ 
+						//console.log(22);   
+						$(this).addClass("hover"); 
+						$(this).find(".hidden span").css("display","block");
+						$(this).find(".hidden .send").css("display","block");   
+					}) 
+					//移出li
+					$(".m3_b ul li").mouseleave(function(){ 
+						//console.log(22);   
+						$(this).removeClass("hover"); 
+						$(this).find(".hidden span").css("display","none");
+						$(this).find(".hidden .send").css("display","none");     
+					})  
+				})
+				//main4部分
+				$.get("json/main4.json",function(d){
+					var arr = d.data;
+					//console.log(arr);
+					for(var i=0; i<arr.length; i++){
+						var obj = arr[i];
+						//console.log(obj);
+						var li = $("<li></li>").appendTo(".m4_b ul"); 
+						$("<img src=" + obj.img + "/>").appendTo(li);
+						$("<p class='hidden'><span>代理价：<a>登录查看</a></span><a href='' class='send'>一键上传淘宝</a></p>").appendTo(li);
+						$("<p class='name'><a href=''>" + obj.name + "</a><span>¥<b>" + obj.price + "</b></span></p>").appendTo(li);
+						$("<p class='num'><span>货号：</span><span>" + obj.num + "</span><span>" + obj.hot + "</span></p>").appendTo(li);
+					} 
+					//移入li
+					$(".m4_b ul li").mouseenter(function(){ 
+						//console.log(22);   
+						$(this).addClass("hover"); 
+						$(this).find(".hidden span").css("display","block");
+						$(this).find(".hidden .send").css("display","block");   
+					}) 
+					//移出li
+					$(".m4_b ul li").mouseleave(function(){ 
+						//console.log(22);   
+						$(this).removeClass("hover"); 
+						$(this).find(".hidden span").css("display","none");
+						$(this).find(".hidden .send").css("display","none");     
+					})   
+				})
+				//main5部分
+				$(".m5_b_l ul .change").mouseenter(function(){
+					$(this).removeClass("change").siblings().addClass("change");
+					$(".m5_b_l ul li:eq(0)").removeClass();
+					$(".m5_b_l ul li:eq(1)").removeClass(); 
+				})
+				$(".m5_b_l ul li:eq(2)").mouseenter(function(){
+					$(this).removeClass("change").siblings().addClass("change");
+					$(".m5_b_l ul li:eq(0)").removeClass();
+					$(".m5_b_l ul li:eq(1)").removeClass(); 
+				})
+				
+				$.get("json/main5.json",function(d){
+					var arr = d.data;
+					//console.log(arr);
+					for(var i=0; i<arr.length; i++){
+						var obj = arr[i];
+						//console.log(obj);
+						var li = $("<li></li>").appendTo(".m5_b_r ul"); 
+						$("<img src=" + obj.img + "/>").appendTo(li);
+						$("<p class='hidden'><span>代理价：<a>登录查看</a></span><a href='' class='send'>一键上传淘宝</a></p>").appendTo(li);
+						$("<p class='name'><a href=''>" + obj.name + "</a><span>¥<b>" + obj.price + "</b></span></p>").appendTo(li);
+						$("<p class='num'><span>货号：</span><span>" + obj.num + "</span><span>" + obj.hot + "</span></p>").appendTo(li);
+					} 
+					//移入li
+					$(".m5_b_r ul li").mouseenter(function(){ 
+						//console.log(22);   
+						$(this).addClass("hover"); 
+						$(this).find(".hidden span").css("display","block");
+						$(this).find(".hidden .send").css("display","block");   
+					}) 
+					//移出li
+					$(".m5_b_r ul li").mouseleave(function(){ 
+						//console.log(22);   
+						$(this).removeClass("hover"); 
+						$(this).find(".hidden span").css("display","none");
+						$(this).find(".hidden .send").css("display","none");      
+					})   
+				})
+				
+				//main6部分
+				$(".indent a").mouseenter(function(){
+					$(this).addClass("active5").siblings().removeClass("active5");
+					$(this).parent().siblings().children().eq($(this).index()).show().siblings().hide(); 
+				})
+				//li上移
+				 
+				var i = 0;
+				setInterval(function(){
+					if(i>=$(".eg1 ul li").size()-3){
+						$(".eg1 ul").css("top",0); 
+						i = 0;  
+						i++;
+						$(".eg1 ul").animate({top:-57*i},1000); 
+					}
+					else{
+						i++;
+						$(".eg1 ul").animate({top:-57*i},1000);
+					} 
+				},2000)  
+				
+				setInterval(function(){
+					if(i>=$(".eg2 ul li").size()-3){
+						$(".eg2 ul").css("top",0); 
+						i = 0;  
+						i++;
+						$(".eg2 ul").animate({top:-57*i},1000); 
+					}
+					else{
+						i++;
+						$(".eg2 ul").animate({top:-57*i},1000);  
+					} 
+				},2000)  
+				
+				$(".m6_r_t ul a").click(function(){
+					$(this).addClass("active4").siblings().removeClass("active4");
+					$(".m6_r_b img").eq($(this).index()).show().siblings().hide(); 
+				}) 
+				
+				//t_nav
+				$(".t_nav>ul>li").mouseenter(function(){
+					$(".dis").hide();
+					$(".dis").eq($(this).index()).stop().show(300); 
+					
+				})
+				$(".t_nav>ul>li").mouseleave(function(){
+					$(".dis").hide();
+				})
+				$(".dis").mouseenter(function(){
+					$(this).show();
+				})
+				$(".dis").mouseleave(function(){
+					$(this).hide();
+				})    
+				
+				
+				//回到顶部
+				$("#toTop").click(function(){
+					//console.log($(window).scrollTop());
+					if($(window).scrollTop()>0){
+						$("html,body").stop().animate({scrollTop:0},500);    
+					} 
+				})
+				
+				//结算
+				$(".t_cart").click(function(){
+					location.href = "html/cart.html";
+				})
+				//有多少件商品
+				var arrs = $.cookie("cart")?JSON.parse($.cookie("cart")):[];
+				var many = 0;
+				for(var i=0; i<arrs.length; i++){
+					many += parseInt(arrs[i].nums);
+				} 
+				console.log(many);
+				$(".many").html(many);  
+
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div id="top1_wrap">
+			<div class="top_t">
+				<ul class="tList1">
+					<li><span>您好，欢迎光临！</span></li>
+					<li class="spe"><a href="html/login.html">登录<span></span></a></li>
+					<li><a href="html/register.html">注册</a></li> 
+					<li><a href="javascript">我的订单</a></li>
+					<li><a href="javascript">淘宝订单</a></li>
+					<li class="spe5"><a href="javascript"><i class="spe2"></i><i class="spe3"></i></a></li>
+				</ul>
+				<ul class="tList2">
+					<li><a href="javascript:;">最新下架</a></li>
+					<li><a href="javascript">快递跟踪<span></span></a></li>
+					<li><a href="javascript">收藏本站</a></li>
+					<li>客服热线:<i class="spe4">4008518595</i></li> 
+				</ul>
+				<ul class="tList3">
+					<li>商城消息：</li>
+					<li><a href="javascript:;"><span>15天</span>退换货保障！<span>30天</span>超长保修！</a></li>
+					<li><a href="javascript:;"><span>4年</span>诚信经营！<span>100%</span>一手货源！</a></li>
+					<li><a href="javascript:;">商城新品上线！<span>100%正品</span>保证！</a></li>
+				</ul> 
+			</div>
+		</div>
+		
+		<div id="top2_wrap">
+			<div class="top_m">
+				<div class="t_logo">
+					<h1>
+						<a href="javascript:;" title="淘美鞋女鞋批发网官方网站-成都便宜的女鞋分销,免费女鞋代理一件代发,淘宝女鞋代理,微店代理,时尚女鞋,日韩女鞋,女鞋货源网">
+							<img src="img/cdn.taomeixie.com/themes/shop/images/logo.png"/>
+						</a>
+					</h1>
+				</div>
+				<div class="t_search">
+					<input class="sear" type="text" placeholder="请输入关键字或货物搜索" />
+					<input type="submit" value=""/>
+					<ul class="tList4">
+						<li>热词：</li>
+						<li><a href="javascript:;">单鞋</a></li>
+						<li><a href="javascript:;">凉鞋</a></li>
+						<li><a href="javascript:;">女靴</a></li>
+						<li><a href="javascript:;">高跟</a></li>
+						<li><a href="javascript:;">平底</a></li>
+						<li><a href="javascript:;">蝴蝶结</a></li>
+					</ul>
+				</div>
+				<div class="t_cart">
+					<h3><a href="javascript:;">购物车<span class="many">0</span>件商品</a></h3>
+					<div class="aper">
+						<p>您的购物车中没有商品<br />如果已添加商品，请<a href="#">登录</a>查看
+						</p>
+					</div> 
+				</div>
+			</div>
+		</div>
+		
+		<div id="top3_wrap">
+			<div class="top_b">
+				<div class="top_all">
+					<a href="#">全部商品分类</a>
+					<i></i>
+					<div class="t_nav">
+						<ul>
+							<li><a href="#">2017春季新品</a><br /><a href="#">第六季(6-6)</a><a href="#">第五季(5-24)</a></li>
+							<li><a href="#">秋冬女靴</a><br /><a href="#">中跟女靴</a><a href="#">低跟/平底</a><a href="#">高跟女靴</a></li>
+							<li><a href="#">四季单鞋</a><br /><a href="#">高跟单靴</a><a href="#">中跟单鞋</a><a href="#">平跟/低跟</a></li>
+							<li><a href="#">夏日凉鞋</a><br /><a href="#">高跟单靴</a><a href="#">中跟单鞋</a><a href="#">平跟/低跟</a></li>
+							<li><a href="#">特价专区</a><br /><a href="#">江浙发货</a><a href="#">单鞋</a><a href="#">靴子</a></li>
+							<li><a href="#">赠品专区</a><br /><a href="#">后跟帖</a><a href="#">鞋垫</a><a href="#">香包</a></li>
+						</ul>
+						<div class="dis">
+							<h3>2017春季新品     > </h3>
+							<div>
+								<ul> 
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul> 
+							</div>
+						</div>
+						<div class="dis">
+							<h3>秋冬女靴     > </h3>
+							<div>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul> 
+							</div>
+						</div>
+						<div class="dis">
+							<h3>四季单鞋     > </h3>
+							<div>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul> 
+							</div>
+						</div>
+						<div class="dis">
+							<h3>夏日凉鞋     > </h3>
+							<div>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul> 
+							</div>
+						</div>
+						<div class="dis">
+							<h3>特价专区     > </h3>
+							<div>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul> 
+							</div>
+						</div>
+						<div class="dis">
+							<h3>赠品专区     > </h3>
+							<div>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul> 
+							</div>
+						</div>
+					</div> 
+				</div>
+				<ul class="tList5">
+					<li class="active"><a href="#">首页</a></li> 
+					<li><a href="#">2017春季新品</a></li>
+					<li><a href="#">秋冬女靴</a></li>
+					<li><a href="#">四季单鞋</a></li>
+					<li><a href="#">夏日凉鞋</a></li>
+					<li><a href="#">留言反馈</a></li>
+					<li><a href="#">代理说明</a></li>
+					<li><a href="#">数据下载</a></li>
+					<li><a href="#">广告素材</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="main_wrap">
+			<div class="main">
+				<div class="main1">
+					<div class="banner">
+						<ul class="bList1">
+							<!--<li><img src="img/cdn.taomeixie.com/data/afficheimg/20140923nhixcc.jpg" alt="" /></li>-->
+						</ul>
+						<ul class="bList2">
+							<!--<li class="active2">1</li>-->
+						</ul>
+					</div>
+					<ul class="bList3">
+						<li><a href="#" class="red">代理须知</a>丨<a href="#">售后说明</a>丨<a href="#" class="org">产品变动</a></li>
+						<li><a href="#" class="red">数据包下载</a>丨<a href="#">原图下载</a>丨<a href="#">使用教程</a></li>
+						<li><a href="#">网点查询</a>丨<a href="#" class="red">快递跟踪</a>丨<a href="#">运费说明</a></li> 
+					</ul>
+					<div class="notice">
+						<div class="up"></div>
+						<div class="down">
+							<div class="d_up"> 
+								<a href="" class="active3">最新公告</a>
+								<a href="">开店指南</a>
+							</div>
+							<div class="d_down">
+								<div class="new">
+									<ul>
+										<!--<li><a href="">2017年春节放假通知</a></li>-->
+									</ul>
+								</div>
+								<div class="advice">
+									<ul>
+										<!--<li><a href="">2017年春节放假通知</a></li>-->
+									</ul>	
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="main2">
+					<div class="m2_t">
+						<img src="img/cdn.taomeixie.com/themes/shop/images/banner1.gif"/>
+					</div>
+					<div class="m2_m">
+						<h2></h2>
+						<ul>
+							<a href="javascript:;" class="active4">第六季（6-6）</a>
+							<a href="javascript:;">第五季（5-24）</a>
+							<a href="javascript:;">第四季（5-10）</a>
+							<a href="javascript:;">第三季（4-28）</a>
+							<a href="javascript:;">第二季（4-17）</a>
+							<a href="javascript:;">第一季（4-2）</a> 
+						</ul>
+						<a href="" class="more">更多新品>></a>
+					</div>
+					<div class="m2_b">
+						<ul>
+							<!--<li class="hover">
+								<img src="img/cdn.taomeixie.com/images/201706/thumb_img/7043_thumb_G_1496729682830.jpg"/>
+								<p class="hidden">
+									<span>代理价：<a>登录查看</a></span>
+									<a href="" class="send">一键上传淘宝</a>
+								</p>
+								<p class="name">
+									<a href="">2017新款高跟细跟尖头单鞋</a>
+									<span>¥<b>75.00</b></span>
+								</p>
+								<p class="num"> 
+									<span>货号：</span><span>[8145]</span><span>人气：275</span>
+								</p>
+							</li>-->
+						</ul>
+					</div>
+				</div>
+				<div class="main3">
+					<div class="m3_t">
+						<h2></h2>
+						<a href="" class="more">更多新品>></a>
+					</div>
+					<div class="m3_b">
+						<ul>
+							<!--<li class="hover">
+								<img src="img/cdn.taomeixie.com/images/201706/thumb_img/7043_thumb_G_1496729682830.jpg"/>
+								<p class="hidden">
+									<span>代理价：<a>登录查看</a></span>
+									<a href="" class="send">一键上传淘宝</a>
+								</p>
+								<p class="name">
+									<a href="">2017新款高跟细跟尖头单鞋</a>
+									<span>¥<b>75.00</b></span>
+								</p>
+								<p class="num"> 
+									<span>货号：</span><span>[8145]</span><span>人气：275</span>
+								</p>
+							</li> -->
+						</ul>
+					</div>
+				</div>
+				<div class="main4">
+					<div class="m4_t">
+						<img src="img/cdn.taomeixie.com/themes/shop/images/remai.gif"/>
+					</div>
+					<div class="m4_m">
+						<h2></h2>
+						<a href="" class="more">更多新品>></a>
+					</div>
+					<div class="m4_b">
+						<ul>
+							<!--<li class="hover">
+								<img src="img/cdn.taomeixie.com/images/201706/thumb_img/7043_thumb_G_1496729682830.jpg"/>
+								<p class="hidden">
+									<span>代理价：<a>登录查看</a></span>
+									<a href="" class="send">一键上传淘宝</a>
+								</p>
+								<p class="name">
+									<a href="">2017新款高跟细跟尖头单鞋</a>
+									<span>¥<b>75.00</b></span>
+								</p>
+								<p class="num"> 
+									<span>货号：</span><span>[8145]</span><span>人气：275</span>
+								</p>
+							</li>-->
+						</ul>
+					</div>
+				</div>
+				<div class="main5">
+					<div class="m5_t">
+						<h2></h2>
+						<a href="" class="more">更多新品>></a>
+					</div>
+					<div class="m5_b">
+						<div class="m5_b_l">
+							<ul>
+								<li>
+									<div class="icon"></div>
+									<div class="pic">
+										<img src="img/cdn.taomeixie.com/image/goods/20130911/39d14def8f89ecc6.jpg"/>
+									</div>
+									<div class="msg">
+										<p>2017新款尖头平底校园学生单鞋</p>
+										<p>货号：7945</p>
+										<p>69.00</p>  
+									</div> 
+								</li>
+								<li>
+									<div class="icon"></div>
+									<div class="pic">
+										<img src="img/cdn.taomeixie.com/image/goods/20130911/39d14def8f89ecc6.jpg"/>
+									</div>
+									<div class="msg">
+										<p>2017新款尖头平底校园学生单鞋</p>
+										<p>货号：7945</p>
+										<p>69.00</p> 
+									</div> 
+								</li>
+								<li> 
+									<div class="icon"></div>
+									<div class="pic">
+										<img src="img/cdn.taomeixie.com/image/goods/20130911/39d14def8f89ecc6.jpg"/>
+									</div>
+									<div class="msg">
+										<p>2017新款尖头平底校园学生单鞋</p>
+										<p>货号：7945</p>
+										<p>69.00</p> 
+									</div> 
+								</li>
+								<li class="change">
+									<div class="icon"></div>
+									<div class="pic">
+										<img src="img/cdn.taomeixie.com/image/goods/20130911/39d14def8f89ecc6.jpg"/>
+									</div>
+									<div class="msg">
+										<p>2017新款尖头平底校园学生单鞋</p>
+										<p>货号：7945</p>
+										<p>69.00</p> 
+									</div> 
+								</li>
+								<li class="change">
+									<div class="icon"></div>
+									<div class="pic">
+										<img src="img/cdn.taomeixie.com/image/goods/20130911/39d14def8f89ecc6.jpg"/>
+									</div>
+									<div class="msg">
+										<p>2017新款尖头平底校园学生单鞋</p>
+										<p>货号：7945</p>
+										<p>69.00</p> 
+									</div> 
+								</li>
+								<li class="change">
+									<div class="icon"></div>
+									<div class="pic">
+										<img src="img/cdn.taomeixie.com/image/goods/20130911/39d14def8f89ecc6.jpg"/>
+									</div>
+									<div class="msg">
+										<p>2017新款尖头平底校园学生单鞋</p>
+										<p>货号：7945</p>
+										<p>69.00</p> 
+									</div> 
+								</li>
+								<li class="change">
+									<div class="icon"></div>
+									<div class="pic">
+										<img src="img/cdn.taomeixie.com/image/goods/20130911/39d14def8f89ecc6.jpg"/>
+									</div>
+									<div class="msg">
+										<p>2017新款尖头平底校园学生单鞋</p>
+										<p>货号：7945</p>
+										<p>69.00</p> 
+									</div> 
+								</li>
+								<li class="change">
+									<div class="icon"></div>
+									<div class="pic">
+										<img src="img/cdn.taomeixie.com/image/goods/20130911/39d14def8f89ecc6.jpg"/>
+									</div>
+									<div class="msg">
+										<p>2017新款尖头平底校园学生单鞋</p>
+										<p>货号：7945</p>
+										<p>69.00</p> 
+									</div> 
+								</li>
+								<li class="change">
+									<div class="icon"></div>
+									<div class="pic">
+										<img src="img/cdn.taomeixie.com/image/goods/20130911/39d14def8f89ecc6.jpg"/>
+									</div>
+									<div class="msg">
+										<p>2017新款尖头平底校园学生单鞋</p>
+										<p>货号：7945</p>
+										<p>69.00</p> 
+									</div> 
+								</li>
+								<li class="change">
+									<div class="icon"></div>
+									<div class="pic">
+										<img src="img/cdn.taomeixie.com/image/goods/20130911/39d14def8f89ecc6.jpg"/>
+									</div>
+									<div class="msg">
+										<p>2017新款尖头平底校园学生单鞋</p>
+										<p>货号：7945</p>
+										<p>69.00</p> 
+									</div> 
+								</li>
+							</ul>
+						</div>
+						<div class="m5_b_r">
+							<ul>
+								<!--<li class="hover">
+									<img src="img/cdn.taomeixie.com/images/201706/thumb_img/7043_thumb_G_1496729682830.jpg"/>
+									<p class="hidden">
+										<span>代理价：<a>登录查看</a></span>
+										<a href="" class="send">一键上传淘宝</a>
+									</p>
+									<p class="name">
+										<a href="">2017新款高跟细跟尖头单鞋</a>
+										<span>¥<b>75.00</b></span>
+									</p>
+									<p class="num"> 
+										<span>货号：</span><span>[8145]</span><span>人气：275</span>
+									</p>
+								</li>-->
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="main6">
+					<div class="m6_l">
+						<div class="m6_l_t">
+							<div class="indent">
+								<a href="" class="active5">实时订单</a>  
+								<a href="">最新发货</a>
+							</div>
+							<div class="eg">
+								<div class="eg1">
+									<ul>
+										<li>
+											订单：<span>2017072571340</span> 
+											<br />
+											会员：<span>name</span> 金额：<span>¥ 75.00</span> 已付款 
+										</li> 
+										<li>
+											订单：<span>2017072571340</span> 
+											<br />
+											会员：<span>name</span> 金额：<span>¥ 75.00</span> 已付款 
+										</li> 
+										<li>
+											订单：<span>2017072571340</span> 
+											<br />
+											会员：<span>name</span> 金额：<span>¥ 75.00</span> 已付款 
+										</li> 
+										<li>
+											订单：<span>2017072571340</span> 
+											<br />
+											会员：<span>name</span> 金额：<span>¥ 75.00</span> 已付款 
+										</li> 
+										<li>
+											订单：<span>2017072571340</span> 
+											<br />
+											会员：<span>name</span> 金额：<span>¥ 75.00</span> 已付款 
+										</li>  
+									</ul>
+								</div>
+								<div class="eg2">
+									<ul>
+										<li>
+											订单：<span>2017072571340</span> 已发出 
+										</li> 
+										<li>
+											订单：<span>2017072571340</span> 已发出 
+										</li> 
+										<li>
+											订单：<span>2017072571340</span> 已发出 
+										</li> 
+										<li>
+											订单：<span>2017072571340</span> 已发出 
+										</li> 
+										<li>
+											订单：<span>2017072571340</span> 已发出 
+										</li> 
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="m6_l_b">
+							<p>订阅最新商品信息：</p>
+							<input type="text" placeholder="请输入您的邮箱"/>
+							<input type="button" value="订阅"/>
+						</div>
+					</div>
+					<div class="m6_r">
+						<div class="m6_r_t">
+							<h2></h2>
+							<ul>
+								<a href="javascript:;" class="active4">关于淘美鞋</a>
+								<a href="javascript:;">社会现状</a>
+								<a href="javascript:;">我们的优势</a>
+								<a href="javascript:;">服务亮点</a>
+								<a href="javascript:;">免费服务</a> 
+							</ul> 
+						</div>
+						<div class="m6_r_b">
+							<img src="img/cdn.taomeixie.com/includes/kindeditor/attached/image/20141017/20141017211156_57344.jpg"/>
+							<img src="img/cdn.taomeixie.com/includes/kindeditor/attached/image/20141014/20141014222233_98335.jpg"/>
+							<img src="img/cdn.taomeixie.com/includes/kindeditor/attached/image/20141013/20141013224646_89905.jpg"/>
+							<img src="img/cdn.taomeixie.com/includes/kindeditor/attached/image/20141013/20141013224630_97212.jpg"/>
+							<img src="img/cdn.taomeixie.com/includes/kindeditor/attached/image/20141013/20141013224600_32962.jpg"/> 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="footer_wrap">
+			<div class="foot">
+				<div class="f_t">
+					<dl>
+						<dt><a href="#">新手上路 </a></dt>
+						<dd><a href="#">数据包使用教程 </a></dd>
+						<dd><a href="#">推广现金提层 </a></dd>
+						<dd><a href="#">女鞋代理说明 </a></dd>
+						<img src="img/cdn.taomeixie.com/lyecs_style/style/foot_help_border.gif"/>
+					</dl>
+					<dl>
+						<dt><a href="#">配送指南 </a></dt>
+						<dd><a href="#">用费说明 </a></dd>
+						<dd><a href="#">配送方式 </a></dd>
+						<dd><a href="#">网点查询 </a></dd>
+						<dd><a href="#">快递跟踪 </a></dd>
+						<img src="img/cdn.taomeixie.com/lyecs_style/style/foot_help_border.gif"/>
+					</dl>
+					<dl>
+						<a href="#"></a>
+						<a href="#"></a>
+						<img src="img/cdn.taomeixie.com/lyecs_style/style/foot_help_border.gif"/>
+					</dl>
+					<dl>
+						<dt><a href="#">如何付款</a></dt>
+						<dd><a href="#">支付方式</a></dd>
+						<img src="img/cdn.taomeixie.com/lyecs_style/style/foot_help_border.gif"/>
+					</dl>
+					<dl>
+						<dt><a href="#">售后服务</a></dt>
+						<dd><a href="#">售后说明</a></dd>
+						<dd><a href="#">售后服务</a></dd>
+						<dd><a href="#">联系我们</a></dd>
+						<dd><a href="#">关于我们</a></dd> 
+					</dl>
+				</div>
+				<div class="f_m"></div>
+				<div class="f_b">
+					<div>
+						<b>友情链接：</b>
+						<a href="#">女鞋分销</a>
+						<a href="#">网上买家具</a>
+						<a href="#">快递查询</a>
+						<a href="#">女鞋批发</a>
+						<a href="#">女鞋代理</a>
+					</div>
+					<div></div>  
+					<p>©2008～2014 成都淘美秀商贸有限公司 All rights reserved   本商店产品图片均为实物拍摄都已经申请保护，不经授权不得使用！ </p>
+					<p>电话：<span>4008518595</span>   工作时间：9:00－23:00    邮箱：service@taomeixie.com </p>
+					<p>© 2017 淘美鞋女鞋批发网 版权所有  <a href="#">蜀ICP备09022855号</a></p> 
+				</div>
+			</div>
+		</div>
+		<div id="bottom">
+			<img src="img/sm_124x47.png"/>
+			<img src="img/sealfree.png"/>
+			<img src="img/pic.gif"/> 
+			<img src="img/gtms01.alicdn.com/tps/i1/T1W6.aFbFbXXcZj_6s-96-18.png"/> 
+		</div>
+		<div id="aside">
+			<ul>
+				<li><a href="javascript:;"></a></li>
+				<li><a href="javascript:;"></a></li>
+				<li><a href="javascript:;"><i>0</i></a></li>
+				<li><a href="javascript:;"></a></li>
+				<li><a href="javascript:;"></a></li>
+				<li><a href="javascript:;"></a></li>
+			</ul>
+		</div>
+		<div id="toTop">
+			<i></i>
+			<a href="javascript:;">返回顶部</a>
+		</div>
+	</body> 
+</html>

@@ -1,0 +1,206 @@
+#top_wrap{
+	width: 100%;
+	height: 90px;
+}
+.top{
+	width: 1020px;
+	height: 90px;
+	margin: 0 auto;
+	padding: 15px 0 5px;
+}
+.logo{
+	width: 460px;
+	height: 70px;
+	float: left;
+}
+.logo a{
+	display: block;
+	width: 460px;
+	height: 70px;
+}
+.logo a img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.help{
+	float: right;
+	color:#666666;
+	padding: 45px 0 0;
+}
+.help a{
+	color: #666666;
+    font-family: 宋体;
+    padding: 0 0 0 5px;
+    text-decoration: underline;
+}
+.help a:hover{
+	color: #666666;
+}
+
+
+/*main*/
+#main_wrap{
+	padding: 5px 0 10px;
+}
+.main{
+	width: 1020px;
+	height: 500px;
+	position: relative;
+	margin: 0 auto;
+}
+.m_l{
+	width: 460px;
+	height: 470px;
+	position: absolute;
+	left: 35px;
+	top: 0;
+	margin: 30px 0 0 20px;
+}
+.m_r{
+	height: 448px;
+    position: absolute;
+    right: 35px;
+    top: 20px;
+    width: 418px;
+    border-left: 1px solid #e5e5e5;
+    padding-left: 40px;
+}
+.m_r div:nth-child(1){
+	height: 36px;
+	margin: 12px 0 8px 22px;
+	background: url(../img/cdn.taomeixie.com/lyecs_style/images/user/login-page-bg.png) no-repeat 0 -25px;
+	position: relative;
+}
+.m_r div:nth-child(1) span{
+	position: absolute;
+	right: 18px;
+	top: 22px;
+}
+.m_r div:nth-child(1) span a{
+	font-weight: bold;
+}
+.m_r div:nth-child(2){
+	margin-top: 8px;
+	height: 1px;
+	width: 418px;
+	border-top:1px solid #eee ;
+}
+.m_r p{
+	margin-top: 12px;
+	margin-left: 14px; 
+}
+.m_r .text{
+	color: #FF0000;
+	font-size: 12px;
+    margin-left: 20px; 
+    width: 200px;
+}
+.m_r p:nth-child(3){
+	color: #999999;
+	font-size: 14px;
+}
+.m_r p span{
+	color: #444;
+	width: 58px;
+	display: inline-block;
+}
+.m_r p input{
+	border-color: #CCCCCC #EEEEEE #EEEEEE; 
+    border-width: 1px;
+    color: #333333;
+    height: 16px;
+    margin-right: 8px;
+    overflow: hidden;
+    padding: 8px;
+    vertical-align: middle;
+    width: 180px; 
+}
+.m_r p .yanzheng{
+	text-transform: uppercase;
+    width: 4em !important;
+}
+.m_r p .yanzhengma{
+	width: 60px;
+	height: 26px;
+	background: url(../img/captcha.png) no-repeat; 
+	cursor: pointer;
+	vertical-align: middle;  
+}
+.m_r p:last-child{
+	position: relative;
+	padding: 10px 0 5px 61px;
+}
+.m_r p .chek{
+	width: 13px;
+	height: 13px;
+	margin: 0 -2px 0 20px; 
+}
+.m_r .log_btn{
+	width: 86px;
+	height: 36px;
+	background-image: linear-gradient(#EC263A,#B92B32);
+	border-radius: 4px;
+	color: white;
+	display: inline-block;
+	text-align: center;
+	line-height: 40px;
+}
+
+
+
+
+/*footer*/
+#footer_wrap{
+	width: 100%;
+}
+.foot{
+	width: 1200px;
+	margin: 0 auto;
+}
+.f_m{
+	width: 100%;
+	height: 70px;
+	border-bottom: 1px solid #eeeeee;
+	background: url(../img/cdn.taomeixie.com/lyecs_style/style/foot_service.jpg) no-repeat center top;
+}
+.f_b div{
+	margin-top: 16px;
+	height: 60px;
+	background: url(../img/cdn.taomeixie.com/lyecs_style/style/foot_service.jpg) no-repeat center -70px;
+}
+.f_b p{
+	text-align: center;
+    padding: 5px 0;
+    color: #333;
+}
+.f_b p span{
+	color: #CC0000;
+    font-size: 14px;
+    font-family: Arial;
+    font-weight: bold;
+}
+.bottom{
+	position: relative;
+	height: 108px;
+}
+.bottom img:nth-child(1){
+	position: absolute;
+	left: 495px;
+	top: 30px;
+}
+.bottom img:nth-child(2){
+	position: absolute;
+	left: 635px;
+	top: 30px;
+}
+.bottom img:nth-child(3){
+	position: absolute;
+	left: 555px;
+	bottom: 0;  
+}
+.bottom img:nth-child(4){
+	position: absolute;
+	left: 610px;
+	bottom: 0;
+} 

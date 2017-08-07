@@ -1,0 +1,36 @@
+/* Copyright (C) 2009 - 2011 lyecs,lyecs许可协议 (http://www.lyecs.com/) */
+* html #loader{width:150px;position:absolute;filter:alpha(opacity=80);}
+input{zoom:expression(function(ele){(ele.className)?ele.className+=" "+ele.type+"_input":ele.className=ele.type+"_input";ele.style.zoom = "1";}
+(this));}
+textarea,select,input.text_input,input.password_input{padding:5px;border-width:1px;border-style:solid;border-color:#bbb #ddd #ddd #bbb;cursor:text;}
+a span,a em{cursor:pointer;}
+.form label select{float:none;}
+dl.table{_display:inline-block}
+dl.table dt{_position:relative;+position:relative;}
+.data_table .odd td{background-color:#fff}
+.data_table .even td{background-color:#f8f8f8;}
+.data_table tbody.odd tr td{background-color:#f8f7f5;}
+.data_table tbody.even tr td{background-color:#f6f6f6;}
+.data_table tfoot tr td{_background-color:#fcfcfc;+background-color:#fcfcfc;}
+.button span{_padding-top:1px;}
+.form h4{position:relative;}
+.btn_special{overflow:hidden;line-height:999em;text-indent:0;}
+.tab_wrapper .tabs a sup{display:inline;float:none;padding-top:0;font-size:16px;line-height:18px;vertical-align:middle;margin-top:-1px;_vertical-align:auto;_margin-top:5px;}
+.tab_wrapper .tabs .arrow_up,.tab_wrapper .tabs .arrow_down{display:inline;float:none;height:19px;padding-top:0px;vertical-align:middle;margin-top:-1px;_overflow:hidden;_margin-top:5px;_margin-bottom:7px;}
+.bright_search form .keyword{height:16px;background:none;}
+.lyecs_main .special_box .hd .extra{_right:-25px;}
+.goods_list .info{_height:1%;}
+.vertical_slider_wrapper{zoom:1}
+.lyecs_main .extra_box .hd{overflow:hidden;}
+.goods_details .basic li.sale_price{padding-bottom:10px;}
+.goods_details .basic li.sale_price strong{vertical-align:middle;}
+.goods_details .basic li.sale_price .price{vertical-align:middle;}
+.goods_details .basic li.sale_price .org_price{vertical-align:middle;}
+li.end_time_wrapper strong{vertical-align:middle;}
+li.end_time_wrapper .end_time{vertical-align:middle;}
+.gallery .thumb{zoom:1}
+.resize_images img{width:expression(this.width > 705 ? 705:true);}
+.generate_code .options input.text_input{width:20px;}
+.checkout_wrapper .option_item label.disabled{filter:alpha(opacity=50);}
+.nav .sub_nav .inner{zoom:1;}
+.small_nav .nav .sub_nav{_right:-1px;}

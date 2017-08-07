@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>购物车</title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/cartStyle.css"/>
+		<script src="../js/jquery-1.12.3.js"></script>  
+		<script src="../js/jquery.cookie.js"></script>
+		<script src="../js/cart.js"></script>
+	</head>
+	<body> 
+		<div id="top1_wrap">
+			<div class="top_t">
+				<ul class="tList1">
+					<li><span>您好，欢迎光临！</span></li>
+					<li class="spe"><a href="html/login.html">登录<span></span></a></li>
+					<li><a href="html/register.html">注册</a></li> 
+					<li><a href="javascript">我的订单</a></li>
+					<li><a href="javascript">淘宝订单</a></li>
+					<li class="spe5"><a href="javascript"><i class="spe2"></i><i class="spe3"></i></a></li>
+				</ul>
+				<ul class="tList2">
+					<li><a href="javascript:;">最新下架</a></li>
+					<li><a href="javascript">快递跟踪<span></span></a></li>
+					<li><a href="javascript">收藏本站</a></li>
+					<li>客服热线:<i class="spe4">4008518595</i></li> 
+				</ul>
+				<ul class="tList3">
+					<li>商城消息：</li>
+					<li><a href="javascript:;"><span>15天</span>退换货保障！<span>30天</span>超长保修！</a></li>
+					<li><a href="javascript:;"><span>4年</span>诚信经营！<span>100%</span>一手货源！</a></li>
+					<li><a href="javascript:;">商城新品上线！<span>100%正品</span>保证！</a></li>
+				</ul> 
+			</div>
+		</div>
+		
+		<div id="top2_wrap">
+			<div class="top_m">
+				<div class="t_logo">
+					<h1>
+						<a href="javascript:;" title="淘美鞋女鞋批发网官方网站-成都便宜的女鞋分销,免费女鞋代理一件代发,淘宝女鞋代理,微店代理,时尚女鞋,日韩女鞋,女鞋货源网">
+							<img src="../img/cdn.taomeixie.com/themes/shop/images/logo.png"/>
+						</a>
+					</h1>
+				</div>
+				<ul>
+					<li>查看购物车</li>
+					<li>填写购买信息</li>
+					<li>在线付款</li>
+					<li>确认收货</li>
+					<li>评价</li> 
+				</ul>
+			</div>
+		</div> 
+		
+		<div id="top3_wrap">
+			<div class="top_b">
+				<div class="top_all">
+					<a href="#" class="all">全部商品分类 </a>
+					<i></i>
+					<div class="t_nav">
+						<ul>
+							<li><a href="#">2017春季新品</a><br /><a href="#">第六季(6-6)</a><a href="#">第五季(5-24)</a></li>
+							<li><a href="#">秋冬女靴</a><br /><a href="#">中跟女靴</a><a href="#">低跟/平底</a><a href="#">高跟女靴</a></li>
+							<li><a href="#">四季单鞋</a><br /><a href="#">高跟单靴</a><a href="#">中跟单鞋</a><a href="#">平跟/低跟</a></li>
+							<li><a href="#">夏日凉鞋</a><br /><a href="#">高跟单靴</a><a href="#">中跟单鞋</a><a href="#">平跟/低跟</a></li>
+							<li><a href="#">特价专区</a><br /><a href="#">江浙发货</a><a href="#">单鞋</a><a href="#">靴子</a></li>
+							<li><a href="#">赠品专区</a><br /><a href="#">后跟帖</a><a href="#">鞋垫</a><a href="#">香包</a></li>
+						</ul>
+						<div class="dis">
+							<h3>2017春季新品     > </h3>
+							<div>
+								<ul> 
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul> 
+							</div>
+						</div>
+						<div class="dis">
+							<h3>秋冬女靴     > </h3>
+							<div>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul> 
+							</div>
+						</div>
+						<div class="dis">
+							<h3>四季单鞋     > </h3>
+							<div>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul> 
+							</div>
+						</div>
+						<div class="dis">
+							<h3>夏日凉鞋     > </h3>
+							<div>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul> 
+							</div>
+						</div>
+						<div class="dis">
+							<h3>特价专区     > </h3>
+							<div>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul> 
+							</div>
+						</div>
+						<div class="dis">
+							<h3>赠品专区     > </h3>
+							<div>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+									<li><a href="#">第六季(6-6)</a></li>
+								</ul> 
+							</div>
+						</div>
+					</div> 
+				</div>
+				<ul class="tList5">
+					<li class="active"><a href="#">首页</a></li> 
+					<li><a href="#">2017春季新品</a></li>
+					<li><a href="#">秋冬女靴</a></li>
+					<li><a href="#">四季单鞋</a></li>
+					<li><a href="#">夏日凉鞋</a></li>
+					<li><a href="#">留言反馈</a></li>
+					<li><a href="#">代理说明</a></li>
+					<li><a href="#">数据下载</a></li>
+					<li><a href="#">广告素材</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="main_wrap">
+			<div class="main">
+				<div class="cart">
+					<div class="cart_t">
+						<h2>Hi，欢迎来到您的购物车</h2>
+						<a href="#">继续购物</a>
+						<a href="#">去下单</a>
+					</div>
+					<table>
+						<tr class="first">
+							<th><input type="checkbox" checked="checked" class="firstCheck"/></th> 
+							<th class="text_left"><span class="many">0</span>件商品</th> 
+							<th>售价</th>
+							<th>购买数量</th>
+							<th>小计</th>
+							<th>操作</th>
+						</tr>
+						<!--<tr>
+							<td><input type="checkbox" checked="checked" /></td>
+							<td class="text_left"><img src="../img/1097236a3920e49f.jpg"/><span>货号：[maodian1-1] <a href="javascript:;">保暖羊毛绒垫</a></span></td>
+							<td class="font-fm">¥ 1.00</td>
+							<td class="count"><span class="active minus">-</span><input type="text" value="1"/><span class="add">+</span></td>
+							<td class="price">¥1</td>
+							<td><a href="javascript:;">操作</a></td>  
+						</tr>--> 
+					</table>
+					<div class="cart_b">
+						<div class="cart_b_l">
+							<p>
+								<span><input type="checkbox" checked="checked" class="allCheck"/>全选</span> 
+								<a href="#" id="delSelect">删除勾选商品</a> 
+								<a href="#">清空购物车</a>
+							</p>
+							<p><a href="#">继续购物</a></p>
+						</div>
+						<div class="cart_b_r">
+							<p>1件商品，总价：<span>¥<b class="sum">1.00</b></span></p>
+							<p><a href="#">去下单</a></p> 
+						</div>
+					</div>
+					<div class="none">
+						<p>您的购物车中暂时没有商品！</p>
+						<a href="#"></a> 
+					</div>
+				</div>
+				<div class="gift">
+					<h3>赠品专区</h3> 
+					<ul>
+						<li>
+							<p><a href="#"><img src="../img/bc8dadf23563e7d7.jpg"/></a></p>
+							<p>代理价：<span>登录查看</span></p>
+							<p><a href="#">水晶半垫一对</a></p>
+							<p><a href="#">放入购物车</a></p> 
+						</li>
+						<li>
+							<p><a href="#"><img src="../img/bc8dadf23563e7d7.jpg"/></a></p>
+							<p>代理价：<span>登录查看</span></p>
+							<p><a href="#">水晶半垫一对</a></p>
+							<p><a href="#">放入购物车</a></p> 
+						</li>
+						<li>
+							<p><a href="#"><img src="../img/bc8dadf23563e7d7.jpg"/></a></p>
+							<p>代理价：<span>登录查看</span></p>
+							<p><a href="#">水晶半垫一对</a></p>
+							<p><a href="#">放入购物车</a></p> 
+						</li>
+						<li>
+							<p><a href="#"><img src="../img/bc8dadf23563e7d7.jpg"/></a></p>
+							<p>代理价：<span>登录查看</span></p>
+							<p><a href="#">水晶半垫一对</a></p>
+							<p><a href="#">放入购物车</a></p> 
+						</li>
+						<li>
+							<p><a href="#"><img src="../img/bc8dadf23563e7d7.jpg"/></a></p>
+							<p>代理价：<span>登录查看</span></p>
+							<p><a href="#">水晶半垫一对</a></p>
+							<p><a href="#">放入购物车</a></p> 
+						</li>
+						<li>
+							<p><a href="#"><img src="../img/bc8dadf23563e7d7.jpg"/></a></p>
+							<p>代理价：<span>登录查看</span></p>
+							<p><a href="#">水晶半垫一对</a></p>
+							<p><a href="#">放入购物车</a></p> 
+						</li>
+						<li>
+							<p><a href="#"><img src="../img/bc8dadf23563e7d7.jpg"/></a></p>
+							<p>代理价：<span>登录查看</span></p>
+							<p><a href="#">水晶半垫一对</a></p>
+							<p><a href="#">放入购物车</a></p> 
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div id="footer_wrap">
+			<div class="foot">
+				<div class="f_t">
+					<dl>
+						<dt><a href="#">新手上路 </a></dt>
+						<dd><a href="#">数据包使用教程 </a></dd>
+						<dd><a href="#">推广现金提层 </a></dd>
+						<dd><a href="#">女鞋代理说明 </a></dd>
+						<img src="../img/cdn.taomeixie.com/lyecs_style/style/foot_help_border.gif"/>
+					</dl>
+					<dl>
+						<dt><a href="#">配送指南 </a></dt>
+						<dd><a href="#">用费说明 </a></dd>
+						<dd><a href="#">配送方式 </a></dd>
+						<dd><a href="#">网点查询 </a></dd>
+						<dd><a href="#">快递跟踪 </a></dd>
+						<img src="../img/cdn.taomeixie.com/lyecs_style/style/foot_help_border.gif"/>
+					</dl>
+					<dl>
+						<a href="#"></a>
+						<a href="#"></a>
+						<img src="../img/cdn.taomeixie.com/lyecs_style/style/foot_help_border.gif"/>
+					</dl>
+					<dl>
+						<dt><a href="#">如何付款</a></dt>
+						<dd><a href="#">支付方式</a></dd>
+						<img src="../img/cdn.taomeixie.com/lyecs_style/style/foot_help_border.gif"/>
+					</dl>
+					<dl>
+						<dt><a href="#">售后服务</a></dt>
+						<dd><a href="#">售后说明</a></dd>
+						<dd><a href="#">售后服务</a></dd>
+						<dd><a href="#">联系我们</a></dd>
+						<dd><a href="#">关于我们</a></dd> 
+					</dl>
+				</div>
+				<div class="f_m"></div>
+				<div class="f_b">
+					<div>
+						<b>友情链接：</b>
+						<a href="#">女鞋分销</a>
+						<a href="#">网上买家具</a>
+						<a href="#">快递查询</a>
+						<a href="#">女鞋批发</a>
+						<a href="#">女鞋代理</a>
+					</div>
+					<div></div>  
+					<p>©2008～2014 成都淘美秀商贸有限公司 All rights reserved   本商店产品图片均为实物拍摄都已经申请保护，不经授权不得使用！ </p>
+					<p>电话：<span>4008518595</span>   工作时间：9:00－23:00    邮箱：service@taomeixie.com </p>
+					<p>© 2017 淘美鞋女鞋批发网 版权所有  <a href="#">蜀ICP备09022855号</a></p> 
+				</div>
+			</div>
+		</div>
+		<div id="bottom">
+			<img src="../img/sm_124x47.png"/>
+			<img src="../img/sealfree.png"/>
+			<img src="../img/pic.gif"/> 
+			<img src="../img/gtms01.alicdn.com/tps/i1/T1W6.aFbFbXXcZj_6s-96-18.png"/> 
+		</div>
+		<div id="aside">
+			<ul>
+				<li><a href="javascript:;"></a></li>
+				<li><a href="javascript:;"></a></li>
+				<li><a href="javascript:;"><i>0</i></a></li>
+				<li><a href="javascript:;"></a></li>
+				<li><a href="javascript:;"></a></li>
+				<li><a href="javascript:;"></a></li>
+			</ul>
+		</div>
+		<div id="toTop">
+			<i></i>
+			<a href="javascript:;">返回顶部</a>
+		</div> 
+	</body>
+</html>
