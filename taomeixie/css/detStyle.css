@@ -1064,6 +1064,7 @@ height: 48px;
 	position: fixed;
 	right: 0;
 	top: 0;
+	z-index: 9999;   
 }
 #aside ul{
 	margin-top: 150px;
@@ -1075,7 +1076,7 @@ height: 48px;
 	width: 33px;
 	height: 50px;
 	border-bottom: 1px solid #80848C;
-    border-top: 1px solid #BFC0C4;
+  border-top: 1px solid #BFC0C4;
 }
 #aside ul li:nth-child(1) a{
 	background: url(../img/cdn.taomeixie.com/lyecs_style/images/common/toolbar_bg.png) no-repeat 3px -30px;
@@ -1101,21 +1102,148 @@ height: 48px;
 	width: 17px;
 	height: 17px;
 	background:  #00B000;
-    border: 1px solid #018E01;
-    border-radius: 50%;
-    color: white;
-    position: absolute;
-    text-align: center;
-    line-height: 17px;
-    font-style: normal;
+  border: 1px solid #018E01;
+  border-radius: 50%;
+  color: white;
+  position: absolute;
+  text-align: center;
+  line-height: 17px;
+  font-style: normal;
 }
+
+/*去购物车结算*/
+.box3{
+  background:#FFFFFF;
+	border: 1px solid #9699A2;
+	
+	position: absolute;
+	right: -211px;
+	/*right: 40px;*/
+	top: 170px;
+	width: 209px;
+	z-index: 100; 
+	height: 432px;  
+}
+.box3 p{
+	background: #9699A2 ;
+  color: #FFFFFF;
+  font-size: 14px;
+  padding: 10px 21px;
+  height: 21px;  
+}
+.box3 .bgImg{
+	cursor: pointer;
+	height: 41px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background:url(../img/cdn.taomeixie.com/lyecs_style/images/common/toolbar_bg.png) no-repeat 0 -124px;
+	width: 50px;
+}
+#aside_box ul{
+	border: none; 
+	margin-top: 0;
+}
+#aside_box ul li{
+	padding: 5px 10px;
+	border-bottom: 1px dashed #ECECEC;
+	height: 40px;
+}
+#aside_box ul li img{
+	width: 40px;
+	height: 40px;
+	cursor: pointer; 
+	display: block;
+	float: left;
+	margin-right: 5px;
+}
+#aside_box ul li div{
+	float: left;
+}
+#aside_box ul li div h5{
+	color: #333;
+	height: 15px;
+	margin-bottom: 4px;
+	font-weight: normal;
+}
+#aside_box ul li div h6{
+	font-weight: normal;
+	color: #CE0B16;
+  font-size: 12px; 
+  position: relative;
+  width: 100%;
+} 
+#aside_box ul li div h6 b{
+	font-weight: normal;
+}
+#aside_box ul li div h6 .dilete{ 
+  color: #999999;
+	cursor: pointer;
+	font-family: '宋体';
+	height: 15px;
+	line-height: 16px;
+	width: 35px;
+	position: absolute;
+	right: 0px; 
+	border: none;
+	background: none; 
+	float: right;
+	margin-right: 10px;
+	display: inline-block;  
+}
+.more a{
+	padding: 5px 10px;
+  text-align: right; 
+  display: block; 
+  color: #999999;
+  margin-bottom: 8px;
+}
+.box3_btm{
+	padding-bottom: 5px;
+  text-align: center; 
+ 
+}
+.box3_btm div{
+	font-size: 14px;
+  padding: 10px 18px 0; 
+  height: 21px;
+}
+.box3_btm div b{
+	color: #FF3377;
+  font-weight: bold;
+}
+.box3_btm div span:nth-child(1){
+	float: left;
+}
+.box3_btm div span:nth-child(2){
+	float: right; 
+}
+.box3_btm a:nth-child(2){
+	background-color: #D81E27;
+	background-image: linear-gradient(#EC263A,#B92B32);
+	background-repeat: repeat-x;
+	border: 1px solid #AF0911;
+	border-radius: 2px;
+	box-shadow: 0 1px 1px rgba(100,100,100,0.5);
+	color: #FFFFFF;
+	display: inline-block;
+	font-size: 100%;
+	overflow: hidden;
+	padding: 5px 12px;
+	text-shadow: 0 -1px #A91622;
+	vertical-align: middle;
+	margin-top: 10px; 
+} 
+
+
+
 #toTop{
 	position: fixed;
 	right: 0;
 	top: 80%;
 	width: 35px;
 	height: 74px;
-	z-index: 1000;
+	z-index: 10000; 
 	margin: 5px 0;
 	background: #fff;
 }
